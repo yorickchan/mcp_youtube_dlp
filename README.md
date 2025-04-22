@@ -43,6 +43,32 @@ The server will start in stdio mode with debug enabled.
 ### Environment Variables
 
 - `YT_DLP_PATH`: Path to the yt-dlp executable (default: `/usr/local/bin/yt-dlp`)
+- `DEFAULT_DOWNLOAD_DIR`: Directory where videos will be downloaded (default: `~/Downloads/youtube_downloads`)
+
+### MCP Configuration
+
+Add this configuration to your MCP setup:
+
+```json
+{
+  "mcpServers": {
+    "mcp_youtube_dlp": {
+      "command": "uvx",
+      "args": [
+        "mcp[cli]",
+        "run",
+        "<install path>/mcp_youtube_dlp/main.py"
+      ],
+      "env": {
+        "YT_DLP_PATH": "/usr/local/bin/yt-dlp",
+        "DEFAULT_DOWNLOAD_DIR": "~/Downloads/youtube_downloads"
+      }
+    }
+  }
+}
+```
+
+Replace `<install path>` with the actual path where you installed this package.
 
 ### Available Tools
 
